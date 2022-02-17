@@ -11,5 +11,5 @@
 6. ./nginx-www/docker-entrypoint.sh 를 실행시키면 해당 쉘 스크립트가 변수들을 www.conf에 적용하여 만들어줌
 
 #### 기타사항
-1. 도커 네트워크 생성 필요함
-2. docker-entrypoint.sh 실행 권한 필요
+1. 도커 네트워크 생성 필요함(예: docker network create nginx-proxy)
+2. docker-entrypoint.sh 실행 권한 필요(예: chmod +x docker-entrypoint.sh)
