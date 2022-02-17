@@ -5,3 +5,7 @@
 4. ./nginx-www/www.conf.template을 만들고 여기에 변수를 포함하여 작성 후
 5. ./nginx-www/Dockerfile 의 순서에 따라 빌드되면서
 6. ./nginx-www/docker-entrypoint.sh 를 실행시키면 해당 쉘 스크립트가 변수들을 www.conf에 적용하여 만들어줌
+
+#### 기타사항
+1. 도커 네트워크 생성 필요함
+2. docker-entrypoint.sh 실행 권한 필요

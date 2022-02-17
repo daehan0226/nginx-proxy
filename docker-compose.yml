@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  nginx-proxy:
+    container_name: nginx-proxy
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx/log:/var/log/nginx
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - nginx-www
+
+  nginx-www:
+    build: ./nginx-www
+    volumes:
+      - ./nginx-www/log:/var/log/nginx
+    environment:
+      - "VIRTUAL_HOST=${DOMAIN}"
+      - "REDIRECT=${REDIRECT}"
+    container_name: nginx-www
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
